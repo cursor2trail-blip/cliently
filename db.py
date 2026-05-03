@@ -7,7 +7,7 @@ def get_user_by_id(user_id):
     conn = get_connection()
     cursor = conn.cursor()
 
-    query = f"SELECT * FROM users WHERE id = {user_id}"
-    cursor.execute(query)
+    query = "SELECT * FROM users WHERE id = ?"
+    cursor.execute(query, (user_id,))
 
     return cursor.fetchall()
